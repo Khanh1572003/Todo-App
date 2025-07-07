@@ -3,6 +3,9 @@
   padding: 0px;
   box-sizing: border-box;
 }
+:root {
+  --bg-black: black;
+}
 body {
   background-image: linear-gradient(
     90deg,
@@ -11,10 +14,16 @@ body {
     rgba(237, 221, 83, 1) 100%
   );
 }
+.HEAD_APP {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
 .container {
   width: 100%;
   max-width: 570px;
-  background-color: red;
+  background-color: white;
   display: flex;
   flex-direction: column;
   margin: 100px auto;
@@ -99,4 +108,84 @@ body {
   outline: none;
   cursor: pointer;
   flex-shrink: 0;
+}
+/* Khung bao */
+.switch {
+  display: block;
+  position: relative;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  transition: 0.4s;
+  border-radius: 34px;
+  background-color: #ccc;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #2196f3;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.dark_mode,
+body.dark_mode {
+  background-color: #181818 !important;
+  color: #f1f1f1 !important;
+}
+
+.container.dark_mode {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+}
+
+.todo_input input.dark_mode {
+  background-color: #222;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+.todo_input button.dark_mode,
+.delete_button.dark_mode {
+  background-color: var(--bg-black);
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+.todo_list li span.dark_mode {
+  color: #f1f1f1;
+}
+
+.title_App.dark_mode img {
+  filter: brightness(0.8) invert(1);
+}
+.todo_input_text.dark_mode::placeholder {
+  color: white;
+}
+.todo_input_text.dark_mode::-webkit-input-placeholder {
+  color: white;
+}
+.todo_input_text.dark_mode:-ms-input-placeholder {
+  color: white;
+}
+.todo_input_text.dark_mode::-ms-input-placeholder {
+  color: white;
 }

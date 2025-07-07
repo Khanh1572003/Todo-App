@@ -1,7 +1,7 @@
 const input_value = document.querySelector(".todo_input_text");
 const add_button = document.querySelector(".todo_input_button");
 const todo_list = document.querySelector(".todo_list ul");
-
+const checkbox = document.querySelector(".checkbox_ln");
 function add_todo(input_value) {
   if (input_value.trim() === "") {
     alert("Pls enter a task");
@@ -42,4 +42,17 @@ input_value.addEventListener("keypress", (event) => {
     add_button.click(); // Trigger the click event on the add button
   }
   input_value = ""; // Clear the input field after adding the todo
+});
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark_mode");
+  document.querySelector(".container").classList.toggle("dark_mode");
+  document.querySelector(".todo_input input").classList.toggle("dark_mode");
+  document.querySelector(".todo_input button").classList.toggle("dark_mode");
+  document
+    .querySelectorAll(".delete_button")
+    .forEach((btn) => btn.classList.toggle("dark_mode"));
+  document
+    .querySelectorAll(".todo_list li span")
+    .forEach((span) => span.classList.toggle("dark_mode"));
+  document.querySelector(".title_App").classList.toggle("dark_mode");
 });
